@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--Esto es un comentario-->
+<html lang="es">
+    <head>
+        <title>TechShop</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="Pagina de la semana 2, Web y patrones"/>
+        <meta name="Keywords" content="TechShop, ecomerce, amazon, compusa"/>
+        <link href="Css/estilos.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <header class="header">
+            <h1>TechShop</h1>
+            <nav>
+                <a href="ejemplo6.html">Back</a> |
+                <a href="index.html">Home</a> |
+                <a href="ejemplo2.html">Next</a><hr>
+            </nav>
+            <hr>
+        </header>
+        <aside class="aside">
+            <h2 id="noticia">Novedades de la semana</h2>
+            <p>En esta semana tenemos en oferta el producto de video juegos</p>
+            
+        </aside>
+        <section class="contenido">
+            <h2>Clientes</h2>
+            
+            <article>
+                <h3>Listado de clientes</h3>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th class="textoCentrado">Id</th>
+                            <th class="textoCentrado">Nombre</th>
+                            <th class="textoCentrado">Edad</th>
+                            <th class="textoCentrado">Salario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="textoCentrado">1</td>
+                            <td>Juan</td>
+                            <td class="textoCentrado">23</td>
+                            <td class="textoDerecha">20k</td>
+                        </tr>
+                        <tr>
+                            <td class="textoCentrado">2</td>
+                            <td>Sebastian</td>
+                            <td class="textoCentrado">18</td>
+                            <td class="textoDerecha">40k</td>
+                        </tr>
+                        <tr>
+                            <td class="textoCentrado">3</td>
+                            <td>Luis</td>
+                            <td class="textoCentrado">19</td>
+                            <td class="textoDerecha">34k</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </article>  
+            
+            <article>
+                <h3>Registro de Clientes</h3>
+                <form action="/cliente/insertar">
+                    <input type="hidden" name="id" value="5" />
+                    <fieldset>
+                        <label>Nombre</label>
+                        <input type="text" name="nombre" value="" size="40" />
+                    </fieldset>
+                    <fieldset>
+                        <label>Edad   </label>
+                        <input type="number" name="edad" value=""/>
+                    </fieldset>
+                    <fieldset>
+                        <label>Salario</label>
+                        <input type="number" name="salario" value=""/>
+                    </fieldset>
+                    <input type="submit" value="Enviar" />
+                </form>
+            </article>
+       </section>
+        
+        <footer class="footer">
+            Desarrollos tecnologicos Coronado 2023 &COPY; 
+        </footer>
+    </body>
+</html>
