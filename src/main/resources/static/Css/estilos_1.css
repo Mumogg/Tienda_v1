@@ -21,7 +21,7 @@ body {
 }
 
 .aside {
-    background-color: whitesmoke;
+    background-color: aqua;
     position: fixed;
     top: 80px;
     left: 0;
@@ -123,7 +123,6 @@ tbody tr:nth-child(even) {
    font-weight: bold;
    padding: 0 40px;
    line-height: 80px;
-   left: 0;
 }
 
 
