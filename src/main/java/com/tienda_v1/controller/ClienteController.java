@@ -1,3 +1,4 @@
+
 package com.tienda_v1.controller;
 
 import com.tienda_v1.domain.Cliente;
@@ -7,21 +8,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class ClienteController {
-    
+class ClienteController {
     @GetMapping("/")
     public String inicio(Model model){
-        var saludo="saludos desde el Banck end";
+        var saludo="Saludos desde el Back End";
         model.addAttribute("mensaje", saludo);
-        Cliente cliente1=new Cliente("Juan","Contreras","jcontreras@gmail.com","25289974");
-        Cliente cliente2=new Cliente("Pedro","Contreras","pcontreras@gmail.com","25289974");
-        Cliente cliente3=new Cliente("Rita","Contreras","rcontreras@gmail.com","25289974");
         
-        var clientes=Arrays.asList(cliente1, cliente2, cliente3);
+        Cliente cliente1=new Cliente("Juan","Contreras","Jcontreras@gmail.com","22222222");
+        Cliente cliente2=new Cliente("Pedro","Contreras","Pcontreras@gmail.com","22222223");
+        Cliente cliente3=new Cliente("Rita","Contreras","Rcontreras@gmail.com","22222224");
         
-        model.addAttribute("cliente",clientes);
-       
-        return "index"; 
+        var clientes=Arrays.asList(cliente1,cliente2,cliente3);
+        model.addAttribute("clientes", clientes);
+        
+        return "index";
     }
-        
 }

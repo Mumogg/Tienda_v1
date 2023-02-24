@@ -1,9 +1,24 @@
+
 package com.tienda_v1.domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import java.io.Serializable;
 import lombok.Data;
+import org.hibernate.annotations.Table;
 
 @Data
-public class Cliente {
+@Entity
+@Table(name="cliente")
+public class Cliente implements Serializable {
+    private static final long serialVersionUID=1L;
+    
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    private Long idCliente;
+    
     private String nombre;
     private String apellidos;
     private String correo;
@@ -18,6 +33,4 @@ public class Cliente {
         this.correo = correo;
         this.telefono = telefono;
     }
-    
-   
 }
