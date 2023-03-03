@@ -26,12 +26,12 @@ class ClienteController {
     @GetMapping("/cliente/eliminar/{idCliente}")
     public String eliminaCliente(Cliente cliente) {
         clienteService.deleteCliente(cliente);
-        return "redirec:/";
+        return "redirect:/";
     }
 
-    @GetMapping("/cliente/nuevo/")
+    @GetMapping("/cliente/nuevo")
     public String nuevoCliente(Cliente cliente) {
-        return "modificaCliente";
+        return "modificaCLiente";
     }
     @PostMapping("/cliente/guardar")
     public String guardarCliente(Cliente cliente){
@@ -43,6 +43,6 @@ class ClienteController {
     public String modificaCliente(Cliente cliente, Model model){
         cliente = clienteService.getCliente(cliente);
         model.addAttribute("cliente",cliente);
-        return "modificaCliente";
+        return "modificaCLiente";
     }
 }

@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
         <title>TechShop</title>
@@ -8,7 +9,7 @@
         <h2>Listado de clientes</h2>
         <br>
         <hr>
-        <a href="@{/cliente/nuevo/} + ${cliente.idCliente}">Nuevo cliente</a>
+        <a th:href="@{/cliente/nuevo}">Nuevo cliente</a>
         
         
         <div th:if="${clientes !=null and !clientes.empty}">
