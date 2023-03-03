@@ -1,26 +1,48 @@
-
 package com.tienda_v1.controller;
 
 import com.tienda_v1.domain.Cliente;
-import java.util.Arrays;
+import com.tienda_v1.services.ClienteService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 class ClienteController {
+
+    @Autowired
+    private ClienteService clienteService;
+
     @GetMapping("/")
-    public String inicio(Model model){
-        var saludo="Saludos desde el Back End";
-        model.addAttribute("mensaje", saludo);
-        
-        Cliente cliente1=new Cliente("Juan","Contreras","Jcontreras@gmail.com","22222222");
-        Cliente cliente2=new Cliente("Pedro","Contreras","Pcontreras@gmail.com","22222223");
-        Cliente cliente3=new Cliente("Rita","Contreras","Rcontreras@gmail.com","22222224");
-        
-        var clientes=Arrays.asList(cliente1,cliente2,cliente3);
+    public String inicio(Model model) {
+
+        var clientes = clienteService.getclientes();
         model.addAttribute("clientes", clientes);
-        
+
         return "index";
+    }
+
+    @GetMapping("/cliente/eliminar/{idCliente}")
+    public String eliminaCliente(Cliente cliente) {
+        clienteService.deleteCliente(cliente);
+        return "redirec:/";
+    }
+
+    @GetMapping("/cliente/nuevo/")
+    public String nuevoCliente(Cliente cliente) {
+        return "modificaCliente";
+    }
+    @PostMapping("/cliente/guardar")
+    public String guardarCliente(Cliente cliente){
+        clienteService.saveCliente(cliente);
+        return "redirect:/";
+    }
+
+    @GetMapping("/cliente/modificar/{idCliente}")
+    public String modificaCliente(Cliente cliente, Model model){
+        cliente = clienteService.getCliente(cliente);
+        model.addAttribute("cliente",cliente);
+        return "modificaCliente";
     }
 }
