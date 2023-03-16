@@ -7,16 +7,16 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service 
-public class ClienteServiceImpl implements ClienteService{
+@Service
+public class ClienteServiceImpl implements ClienteService {
+
     //Esto crea una unica copia de un objeto
     @Autowired
     private ClienteDao clienteDao;
     
     @Override
-    public List<Cliente> getclientes() {
-        return (List<Cliente>) clienteDao.findAll();
-        
+    public List<Cliente> getClientes() {
+        return (List<Cliente>) clienteDao.findAll(); //Devuelve el listado de los registros de la tabla cliente
     }
 
     @Override

@@ -9,40 +9,40 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
-class ClienteController {
-
+public class ClienteController {
+    
     @Autowired
     private ClienteService clienteService;
-
+    
+    
     @GetMapping("/")
-    public String inicio(Model model) {
-
-        var clientes = clienteService.getclientes();
-        model.addAttribute("clientes", clientes);
-
+    public String inicio(Model model){ 
+        var clientes = clienteService.getClientes();
+        model.addAttribute("clientes",clientes);
         return "index";
     }
-
+    
     @GetMapping("/cliente/eliminar/{idCliente}")
-    public String eliminaCliente(Cliente cliente) {
+    public String eliminaCliente(Cliente cliente){
         clienteService.deleteCliente(cliente);
         return "redirect:/";
     }
-
+    
     @GetMapping("/cliente/nuevo")
-    public String nuevoCliente(Cliente cliente) {
-        return "modificaCLiente";
+    public String nuevoCliente(Cliente cliente){
+        return "modificaCliente";
     }
+    
     @PostMapping("/cliente/guardar")
     public String guardarCliente(Cliente cliente){
         clienteService.saveCliente(cliente);
         return "redirect:/";
     }
-
+    
     @GetMapping("/cliente/modificar/{idCliente}")
     public String modificaCliente(Cliente cliente, Model model){
         cliente = clienteService.getCliente(cliente);
         model.addAttribute("cliente",cliente);
-        return "modificaCLiente";
+        return "modificaCliente";
     }
 }
