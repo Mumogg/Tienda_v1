@@ -19,7 +19,8 @@ public class ClienteController {
     @GetMapping("/listado")
     public String inicio(Model model){ 
         var clientes=clienteService.getClientes();
-        model.addAttribute("clientes", clientes);
+        model.addAttribute("clientes",clientes);
+        model.addAttribute("totalClientes",clientes.size());
         return "/cliente/listado";
     }
     @GetMapping("/eliminar/{idCliente}")
@@ -36,7 +37,7 @@ public class ClienteController {
     @PostMapping("/guardar")
     public String guardarCliente(Cliente cliente){
         clienteService.saveCliente(cliente);
-        return "redirect:/cliente/listado";
+        return "redirect:/";
     }
     
     @GetMapping("/modificar/{idCliente}")
