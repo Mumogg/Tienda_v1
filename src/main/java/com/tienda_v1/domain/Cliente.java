@@ -1,10 +1,12 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package com.tienda_v1.domain;
 
 import jakarta.persistence.*;
 import java.io.Serializable;
 import lombok.Data;
-
 
 @Data
 @Entity
@@ -21,7 +23,7 @@ public class Cliente implements Serializable{
     private String apellidos;
     private String correo;
     private String telefono;
-
+    
     @JoinColumn(name="id_credito", referencedColumnName="id_credito")
     @ManyToOne
     private Credito credito;
@@ -43,4 +45,8 @@ public class Cliente implements Serializable{
         this.telefono = telefono;
         this.credito = credito;
     }
+    
+    
+    
+    
 }

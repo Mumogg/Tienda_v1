@@ -1,13 +1,14 @@
 package com.tienda_v1.controller;
 
 import com.tienda_v1.domain.Cliente;
-import com.tienda_v1.services.ClienteService;
+import com.tienda_v1.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 
 @Controller
 @RequestMapping("/cliente")
@@ -23,6 +24,7 @@ public class ClienteController {
         model.addAttribute("totalClientes",clientes.size());
         return "/cliente/listado";
     }
+    
     @GetMapping("/eliminar/{idCliente}")
     public String eliminaCliente(Cliente cliente){
         clienteService.deleteCliente(cliente);

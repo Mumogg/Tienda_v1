@@ -1,4 +1,4 @@
-package com.tienda_v1.services.impl;
+package com.tienda_v1.service.impl;
 
 import com.tienda_v1.dao.ArticuloDao;
 import com.tienda_v1.domain.Articulo;
