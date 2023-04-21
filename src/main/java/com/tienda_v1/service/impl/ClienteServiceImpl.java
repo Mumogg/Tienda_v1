@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class ClienteServiceImpl implements ClienteService {
 
-    //Esto crea una unica copia de un objeto
     @Autowired
     private ClienteDao clienteDao;
     
@@ -22,7 +21,7 @@ public class ClienteServiceImpl implements ClienteService {
     
     @Override
     public List<Cliente> getClientes() {
-        return (List<Cliente>) clienteDao.findAll(); //Devuelve el listado de los registros de la tabla cliente
+        return (List<Cliente>) clienteDao.findAll(); 
     }
 
     @Override
@@ -42,5 +41,4 @@ public class ClienteServiceImpl implements ClienteService {
         cliente.setCredito(credito);
         clienteDao.save(cliente);
     }
-    
 }
